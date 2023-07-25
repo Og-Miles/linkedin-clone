@@ -20,12 +20,12 @@ function Sidebar() {
 
         <div className="sidebar__stats">
             <div className="sidebar__stat">
-                <p>Who viewed you</p>    
+                <p>Who's viewed your profile</p>    
                 <p className="sidebar__statNumber">2,637</p>    
             </div>
             
             <div className="sidebar__stat">
-                <p>Views on post</p>    
+                <p>impressions on your post</p>    
                 <p className="sidebar__statNumber">2,129</p>  
             </div>
         </div>
