@@ -35,4 +35,9 @@
 .post__buttons{
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid whitesmoke;
+}
+
+.post__body{
+    margin-bottom: 15px;
 }
