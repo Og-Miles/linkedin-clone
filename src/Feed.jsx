@@ -65,7 +65,7 @@ function Feed() {
       description: 'This finally works',
       message: input, 
       photoUrl: '',
-      timestamp:  serverTimestamp()
+      timestamp: serverTimestamp()
     });
 
     setInput('');
