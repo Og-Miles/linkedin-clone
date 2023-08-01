@@ -2,6 +2,8 @@ import './Login.css';
 import { auth } from './firebase';
 import logo from './assets/logo.png'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from './features/counter/userSlice';
 
 
 function Login() {
@@ -10,6 +12,7 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayPic, setDisplayPic] = useState('');
+  const dispatch = useDispatch(); 
 
     const loginToApp = (e) => {
         e.preventDefault();
@@ -19,7 +22,21 @@ function Login() {
         return alert('Error: Full Name Required!');
       }
 
-    }
+      auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
+        userAuth.user.updateProfile({
+          displayName: name,
+          photoURL: displayPic,
+        }).then(() => {
+          dispatch(login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: name,
+            photoURL: displayPic,
+          }))
+        })
+      })
+
+    };
   return (
     <div className='login'>
        <img src={logo} alt="linkedin" />
