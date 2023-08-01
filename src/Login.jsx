@@ -16,7 +16,7 @@ function Login() {
     }
     const register = () => {
       if (!name) {
-        return alert('Error: Input Full Name');
+        return alert('Error: Full Name Required!');
       }
 
     }
@@ -24,7 +24,7 @@ function Login() {
     <div className='login'>
        <img src={logo} alt="linkedin" />
 
-        <form action="">
+        <form>
 
             <input 
             value={name} 
