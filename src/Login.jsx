@@ -4,6 +4,7 @@ import logo from "./assets/logo.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "./features/counter/userSlice";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 function Login() {
   const [name, setName] = useState("");
@@ -14,33 +15,39 @@ function Login() {
 
   const loginToApp = (e) => {
     e.preventDefault();
+    // Implement login functionality here using Firebase auth.signInWithEmailAndPassword
+    // You need to add code to sign in the user with the provided email and password.
+    // You can handle this similarly to the register function below.
   };
+
   const register = () => {
     if (!name) {
       return alert("Error: Full Name Required!");
     }
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userAuth) => {
-        userAuth.user
-          .updateProfile({
-            displayName: name,
-            photoURL: displayPic,
-          })
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        updateProfile(user, {
+          displayName: name,
+          photoURL: displayPic,
+        })
           .then(() => {
             dispatch(
               login({
-                email: userAuth.user.email,
-                uid: userAuth.user.uid,
+                email: user.email,
+                uid: user.uid,
                 displayName: name,
                 photoURL: displayPic,
               })
             );
-          });
+          })
+          .catch((error) => alert("Error updating profile: " + error.message));
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => alert("Error creating user: " + error.message));
   };
+
   return (
     <div className="login">
       <img src={logo} alt="linkedin" />
@@ -74,7 +81,7 @@ function Login() {
           type="password"
         />
 
-        <button>Sign in</button>
+        <button onClick={loginToApp}>Sign in</button>
       </form>
       <p>
         Not a member?
