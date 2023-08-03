@@ -91,7 +91,7 @@ function Feed() {
     <div className="feed">
       <div className="feed__inputContainer">
         <div className="feed__input">
-          <Avatar src={user?.photoUrl}>{user.email[0]}</Avatar>
+          <Avatar src={user.photoUrl}>{user.email[0]}</Avatar>
           <form onSubmit={sendPost}>
             <input
               type="text"
@@ -104,24 +104,25 @@ function Feed() {
         </div>
         <div className="feed__inputOptions">
           <InputOption Icon={ImageIcon} title="Photo" color="#7085f9" />
-          <InputOption Icon={SubscriptionsIcon} title="Video" color="#E7A33E" />
+          <InputOption Icon={SubscriptionsIcon} title="Video" color="#7FC15E" />
           <InputOption Icon={EventNoteIcon} title="Event" color="#C0CBCD" />
           <InputOption
             Icon={CalendarViewDayIcon}
             title="Write article"
-            color="#7FC15E"
+            color="#E7A33E"
           />
         </div>
       </div>
 
       {/* Posts */}
       <FlipMove>
-        {posts.map(({ id, name, description, message }) => (
+        {posts.map(({ id, name, description, message, photoUrl }) => (
           <Post
             key={id}
             name={name}
             description={description}
             message={message}
+            photoUrl={photoUrl}
           />
         ))}
       </FlipMove>

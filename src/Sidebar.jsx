@@ -20,7 +20,7 @@ function Sidebar() {
           src="https://unsplash.com/photos/nY14Fs8pxT8/download?force=true&w=640"
           alt=""
         />
-        <Avatar src={user.photoUrl} className="sidebar__avatar">
+        <Avatar src={user.photoURL} className="sidebar__avatar">
           {user.email[0]}
         </Avatar>
         <h2>{user.displayName}</h2>
