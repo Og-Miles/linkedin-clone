@@ -20,6 +20,7 @@ import {
 import { db } from "./firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/counter/userSlice";
+import FlipMove from "react-flip-move";
 
 const defaultPosts = [
   {
@@ -114,14 +115,16 @@ function Feed() {
       </div>
 
       {/* Posts */}
-      {posts.map(({ id, name, description, message }) => (
-        <Post
-          key={id}
-          name={name}
-          description={description}
-          message={message}
-        />
-      ))}
+      <FlipMove>
+        {posts.map(({ id, name, description, message }) => (
+          <Post
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+          />
+        ))}
+      </FlipMove>
 
       {defaultPosts.map(({ id, name, message, description }) => (
         <Post
