@@ -6,6 +6,9 @@
 }
 .app__body{
     margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    max-width: 1200px;
     display: flex;
     justify-content: center;
 }
