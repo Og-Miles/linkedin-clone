@@ -4,7 +4,11 @@ import logo from "./assets/logo.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "./features/counter/userSlice";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 
 function Login() {
   const [name, setName] = useState("");
@@ -15,6 +19,19 @@ function Login() {
 
   const loginToApp = (e) => {
     e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        dispatch(
+          login({
+            email: user.email,
+            uid: user.uid,
+            displayName: user.displayName,
+            profileUrl: user.photoURL,
+          })
+        );
+      })
+      .catch((error) => alert(error));
     // Implement login functionality here using Firebase auth.signInWithEmailAndPassword
     // You need to add code to sign in the user with the provided email and password.
     // You can handle this similarly to the register function below.
