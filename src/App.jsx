@@ -31,13 +31,14 @@ function App() {
         dispatch(logout());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
       {!user ? (
         <Login />
       ) : (
+        // https://imgur.com/a/qMHfduu
         // https://imgur.com/a/qMHfduu
         <>
           <Header />
