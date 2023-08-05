@@ -38,8 +38,6 @@ function App() {
       {!user ? (
         <Login />
       ) : (
-        // https://imgur.com/a/qMHfduu
-        // https://imgur.com/a/qMHfduu
         <>
           <Header />
 

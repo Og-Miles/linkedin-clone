@@ -127,12 +127,13 @@ function Feed() {
         ))}
       </FlipMove>
 
-      {defaultPosts.map(({ id, name, message, description }) => (
+      {defaultPosts.map(({ id, name, message, description, photoUrl }) => (
         <Post
           key={id}
           name={name}
           description={description}
           message={message}
+          photoUrl={photoUrl}
         />
       ))}
     </div>
