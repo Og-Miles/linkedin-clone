@@ -35,5 +35,18 @@
 
 .header__right{
     display: flex;
-    
 }
+
+.header__right__mobile{
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .header__right{
+        display: none;
+    }
+    .header__right__mobile{
+        display: flex;
+    }
+}
+

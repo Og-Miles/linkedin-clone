@@ -34,14 +34,14 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="app">
+    <div className='app'>
       {!user ? (
         <Login />
       ) : (
         <>
           <Header />
 
-          <div className="app__body">
+          <div className='app__body'>
             <Sidebar />
             <Feed />
             <Widgets />

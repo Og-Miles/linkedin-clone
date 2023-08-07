@@ -104,3 +104,9 @@
     margin-right: 10px;
     margin-left: 5px;
 }
+
+@media screen and (max-width: 650px) {
+    .sidebar{
+        display: none;
+    }
+}

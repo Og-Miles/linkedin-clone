@@ -46,4 +46,12 @@
     justify-content: space-evenly;
 }
 
+@media screen and (max-width:650px){
+    .feed{
+        width: 85%;
+    }
+}
+
+
+
 
