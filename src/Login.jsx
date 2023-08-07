@@ -33,9 +33,6 @@ function Login() {
         );
       })
       .catch((error) => alert(error));
-    // Implement login functionality here using Firebase auth.signInWithEmailAndPassword
-    // You need to add code to sign in the user with the provided email and password.
-    // You can handle this similarly to the register function below.
   };
 
   const register = () => {
