@@ -1,15 +1,31 @@
-.login {
-    display: grid;
+.login{
+    display: flex;
     place-items: center;
-    margin: 0 auto;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    justify-content: space-between;
+    height: 100vh;
 }
 
-.login > img{
+.loginLeft img{
+    height: 100%;
+    width: 100%;
+}
+.loginLeft{
+    width: 550px;
+    height: 600px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.loginRight > img{
     object-fit: contain;
     height: 70px;
     margin: 20px auto;
+}
+
+.loginRight{
+    display: flex;
+    flex-direction: column;
+    margin-left: 96px;
 }
 
 .login form{

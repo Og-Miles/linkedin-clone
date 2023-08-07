@@ -1,6 +1,7 @@
 import "./Login.css";
 import { auth } from "./firebase";
 import logo from "./assets/logo.png";
+import networking from "./assets/networking.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "./features/counter/userSlice";
@@ -66,47 +67,52 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <img src={logo} alt="linkedin" />
+    <div className='login'>
+      <div className='loginLeft'>
+        <img src={networking} alt='networking' />
+      </div>
 
-      <form>
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Full name (required if registered)"
-          type="text"
-        />
+      <div className='loginRight'>
+        <img src={logo} alt='linkedin' />
+        <form>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder='Full name (required if registering)'
+            type='text'
+          />
 
-        <input
-          value={displayPic}
-          onChange={(e) => setDisplayPic(e.target.value)}
-          placeholder="profile picture Url"
-          type="text"
-        />
+          <input
+            value={displayPic}
+            onChange={(e) => setDisplayPic(e.target.value)}
+            placeholder='profile picture Url'
+            type='text'
+          />
 
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          type="text"
-        />
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Email'
+            type='text'
+          />
 
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
-          type="password"
-        />
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Enter your password'
+            type='password'
+          />
 
-        <button onClick={loginToApp}>Sign in</button>
-      </form>
-      <p>
-        Not a member?
-        <span className="login__register" onClick={register}>
-          {" "}
-          Register Now
-        </span>
-      </p>
+          <button onClick={loginToApp}>Sign in</button>
+        </form>
+        <p>
+          Not a member?
+          <span className='login__register' onClick={register}>
+            {" "}
+            Register Now
+          </span>
+        </p>
+      </div>
     </div>
   );
 }
